@@ -1,18 +1,24 @@
-page 80210 "Outputs List"
+page 80214 "Strategies Card"
 {
-    PageType = List;
+    PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = "Output Header";
-    cardpageid = "Outputs Card";
-    DelayedInsert = true;
+    SourceTable = "Strategies Header";
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(GroupName)
             {
+                field("Strategy Code"; Rec."Strategy Code")
+                {
+                    ToolTip = 'Specifies the value of the Strategy Code field.', Comment = '%';
+                }
+                field("Strategy Description"; Rec."Strategy Description")
+                {
+                    ToolTip = 'Specifies the value of the Strategy Description field.', Comment = '%';
+                }
                 field("Output Code"; Rec."Output Code")
                 {
                     ToolTip = 'Specifies the value of the Output Code field.', Comment = '%';
@@ -47,6 +53,13 @@ page 80210 "Outputs List"
                 }
 
             }
+            part(Lines; "Strategies Subform")
+            {
+                ApplicationArea = All;
+                Caption = 'Strategic Actions';
+                SubPageLink = "Strategy Code" = field("Strategy Code");
+                UpdatePropagation = Both;
+            }
         }
     }
 
@@ -54,14 +67,17 @@ page 80210 "Outputs List"
     {
         area(Processing)
         {
-            action(ActionName)
-            {
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
+            //             action(OpenStrategicActionsList)
+            //             {
+            //                 ApplicationArea = All;
+            //                 Caption = 'Go to Strategic Actions list';
+            //                 Image = List;
+            //                 promoted = true;
+            //                 trigger OnAction()
+            //                 begin
+            // PAGE.Run(PAGE::"Outputs List");
+            //                 end;
+            //             }
         }
     }
 

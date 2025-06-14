@@ -4,6 +4,7 @@ page 80205 "Pillars List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Pillars Table";
+    DelayedInsert = true;
 
     layout
     {

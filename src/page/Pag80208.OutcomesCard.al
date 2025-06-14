@@ -39,7 +39,7 @@ page 80208 "Outcomes Card"
             part(Lines; "Outcomes Subform")
             {
                 ApplicationArea = All;
-                Caption = 'Outcomes';
+                Caption = 'Outputs';
                 SubPageLink = "Outcome Code" = field("Outcome Code");
                 Updatepropagation = Both;
             }

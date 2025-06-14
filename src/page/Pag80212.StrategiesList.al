@@ -1,10 +1,10 @@
-page 80210 "Outputs List"
+page 80212 "Strategies List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = "Output Header";
-    cardpageid = "Outputs Card";
+    SourceTable = "Strategies Header";
+    CardPageId = "Strategies Card";
     DelayedInsert = true;
 
     layout
@@ -13,6 +13,14 @@ page 80210 "Outputs List"
         {
             repeater(GroupName)
             {
+                field("Strategy Code"; Rec."Strategy Code")
+                {
+                    ToolTip = 'Specifies the value of the Strategy Code field.', Comment = '%';
+                }
+                field("Strategy Description"; Rec."Strategy Description")
+                {
+                    ToolTip = 'Specifies the value of the Strategy Description field.', Comment = '%';
+                }
                 field("Output Code"; Rec."Output Code")
                 {
                     ToolTip = 'Specifies the value of the Output Code field.', Comment = '%';

@@ -1,29 +1,28 @@
-table 80205 "Output Header"
+table 80207 "Strategies Header"
 {
     DataClassification = ToBeClassified;
 
     fields
     {
-        field(1; "Output Code"; Code[10])
+        field(1; "Strategy Code"; Code[10])
         {
             DataClassification = ToBeClassified;
-
         }
-        field(2; "Output Description"; Text[250])
+        field(2; "Strategy Description"; text[250])
         {
             DataClassification = ToBeClassified;
-
         }
-        field(3; "Outcome Code"; Code[10])
+        field(3; "Output Code"; Code[10])
         {
             DataClassification = ToBeClassified;
-            Editable = false;
-            TableRelation = "Outcomes Header"."Outcome Code";
+            TableRelation = "Output Header"."Output Code";
             trigger OnValidate()
             var
-                ObjHeader: Record "Outcomes Header";
+                objHeader: Record "Output Header";
             begin
-                if ObjHeader.Get("Outcome Code") then begin
+                if ObjHeader.Get("Output Code") then begin
+                    "Output Description" := objHeader."Output Description";
+                    "Strategic Objective Code" := objHeader."Strategic Objective Code";
                     "Strategic Objective" := ObjHeader."Strategic Objective";
                     "Pillar Code" := ObjHeader."Pillar Code";
                     "Pillar Description" := ObjHeader."Pillar Description";
@@ -31,56 +30,74 @@ table 80205 "Output Header"
                     "Outcome Description" := ObjHeader."Outcome Description";
 
                 end else begin
+                    Clear("Output Description");
                     Clear("Strategic Objective");
                     Clear("Pillar Code");
                     Clear("Pillar Description");
                     Clear("Outcome Description");
                     Clear("Outcome Code");
+
                 end;
+
+
             end;
 
         }
-        field(4; "Outcome Description"; text[250])
+        field(4; "Output Description"; Text[250])
+        {
+            DataClassification = ToBeClassified;
+            tablerelation = "Output Header"."Output Description";
+
+        }
+        field(5; "Outcome Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Output Header"."Outcome Code";
+        }
+        field(6; "Outcome Description"; text[250])
         {
             DataClassification = ToBeClassified;
             editable = false;
-            TableRelation = "Outcomes Header"."Outcome Description";
+            TableRelation = "Output Header"."Outcome Description";
 
         }
-        field(5; "Strategic Objective Code"; Code[10])
+        field(7; "Strategic Objective Code"; Code[10])
         {
             Caption = 'Strategic Objective Code';
             editable = false;
-            TableRelation = "Outcomes Header"."Strategic Objective Code";
+            TableRelation = "Output Header"."Strategic Objective Code";
 
         }
-        field(6; "Strategic Objective"; Text[250])
+        field(8; "Strategic Objective"; Text[250])
         {
             Caption = 'Strategic Objective';
             editable = false;
-            TableRelation = "Outcomes Header"."Strategic Objective";
+            TableRelation = "Output Header"."Strategic Objective";
 
         }
-        field(7; "Pillar Code"; Code[10])
+        field(9; "Pillar Code"; Code[10])
         {
             Caption = 'Pillar';
             editable = false;
-            TableRelation = "Outcomes Header"."Pillar Code";
+            TableRelation = "Output Header"."Pillar Code";
 
 
         }
-        field(8; "Pillar Description"; Text[250])
+        field(10; "Pillar Description"; Text[250])
         {
             Caption = 'Pillar Description';
             Editable = false;
-            TableRelation = "Outcomes Header"."Pillar Description";
+            TableRelation = "Output Header"."Pillar Description";
 
         }
+
+
+
     }
 
     keys
     {
-        key(Key1; "Output Code")
+        key(Key1; "Strategy Code")
         {
             Clustered = true;
         }

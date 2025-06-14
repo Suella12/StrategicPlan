@@ -4,6 +4,7 @@ page 80211 "Outputs Card"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Output Header";
+    DelayedInsert = true;
 
     layout
     {
@@ -47,7 +48,7 @@ page 80211 "Outputs Card"
             part(Lines; "Outputs Subform")
             {
                 ApplicationArea = All;
-                Caption = 'Outputs';
+                Caption = 'Strategies';
                 SubpageLink = "Output Code" = field("Output Code");
                 UpdatePropagation = Both;
             }
@@ -58,12 +59,16 @@ page 80211 "Outputs Card"
     {
         area(Processing)
         {
-            action(ActionName)
+            action(OpenStrategiesList)
             {
+                ApplicationArea = all;
+                Caption = 'Go to Strategies';
+                Image = List;
+                Promoted = true;
 
                 trigger OnAction()
                 begin
-
+                    page.run(page::"Strategies List")
                 end;
             }
         }

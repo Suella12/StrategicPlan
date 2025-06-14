@@ -1,5 +1,6 @@
 table 80203 "Outcomes Header"
 {
+    Caption = 'Outcomes Header';
     DataClassification = ToBeClassified;
 
     fields

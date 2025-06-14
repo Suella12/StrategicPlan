@@ -32,12 +32,18 @@ page 80209 "Outputs Subform"
     {
         area(Processing)
         {
-            action(ActionName)
+            action(OpenStrategiesCard)
             {
+                ApplicationArea = All;
+                Caption = 'Go to Strategies Card';
+                Image = Card;
 
                 trigger OnAction()
+                var
+                    StrategyRec: Record "Strategies Header";
                 begin
-
+                    StrategyRec.setrange("Strategy Code", Rec."Strategy Code");
+                    PAGE.Run(Page::"Strategies Card", StrategyRec);
                 end;
             }
         }
