@@ -1,16 +1,15 @@
-page 80215 "Strategic Actions List"
+page 80216 "Strategic Actions Card"
 {
-    PageType = list;
+    PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Strategic Actions Header";
-    CardPageId = "Strategic Actions Card";
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(GroupName)
             {
                 field("Strategic Actions Code"; Rec."Strategic Actions Code")
                 {
@@ -20,45 +19,25 @@ page 80215 "Strategic Actions List"
                 {
                     ToolTip = 'Specifies the value of the Strategic Actions Description field.', Comment = '%';
                 }
-                field("Strategy Code"; Rec."Strategy Code")
+                field("Outcome Description"; Rec."Outcome Description")
                 {
-                    ToolTip = 'Specifies the value of the Strategy Code field.', Comment = '%';
-                }
-                field("Strategy Description"; Rec."Strategy Description")
-                {
-                    ToolTip = 'Specifies the value of the Strategy Description field.', Comment = '%';
-                }
-                field("Output Code"; Rec."Output Code")
-                {
-                    ToolTip = 'Specifies the value of the Output Code field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Outcome Description field.', Comment = '%';
                 }
                 field("Output Description"; Rec."Output Description")
                 {
                     ToolTip = 'Specifies the value of the Output Description field.', Comment = '%';
                 }
-                field("Outcome Code"; Rec."Outcome Code")
-                {
-                    ToolTip = 'Specifies the value of the Outcome Code field.', Comment = '%';
-                }
-                field("Outcome Description"; Rec."Outcome Description")
-                {
-                    ToolTip = 'Specifies the value of the Outcome Description field.', Comment = '%';
-                }
                 field("Strategic Objective"; Rec."Strategic Objective")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective field.', Comment = '%';
                 }
-                field("Strategic Objective Code"; Rec."Strategic Objective Code")
-                {
-                    ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
-                }
-                field("Pillar Code"; Rec."Pillar Code")
-                {
-                    ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
-                }
                 field("Pillar Description"; Rec."Pillar Description")
                 {
                     ToolTip = 'Specifies the value of the Pillar Description field.', Comment = '%';
+                }
+                field("Strategy Description"; Rec."Strategy Description")
+                {
+                    ToolTip = 'Specifies the value of the Strategy Description field.', Comment = '%';
                 }
             }
         }
