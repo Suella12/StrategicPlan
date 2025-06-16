@@ -59,4 +59,5 @@ page 80206 "Outcomes List"
 
     var
         myInt: Integer;
+
 }

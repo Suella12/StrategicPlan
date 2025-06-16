@@ -1,29 +1,32 @@
-table 80207 "Strategies Header"
+table 80209 "Strategic Actions Header"
 {
     DataClassification = ToBeClassified;
 
     fields
     {
-        field(1; "Strategy Code"; Code[10])
+        field(1; "Strategic Actions Code"; Code[10])
         {
             DataClassification = ToBeClassified;
-            Editable = false;
+
         }
-        field(2; "Strategy Description"; text[250])
+        field(2; "Strategic Actions Description"; Text[250])
         {
             DataClassification = ToBeClassified;
-            Editable = false;
+
         }
-        field(3; "Output Code"; Code[10])
+        field(3; "Strategy Code"; Code[10])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Output Header"."Output Code";
             Editable = false;
+            TableRelation = "Strategies Header"."Strategy Code";
+            //this trigger enters the other values automatically from the Strategies Header table when the Strategy Code is entered. 
             trigger OnValidate()
             var
-                objHeader: Record "Output Header";
+                objHeader: Record "Strategies Header";
             begin
-                if ObjHeader.Get("Output Code") then begin
+                if objHeader.Get("Strategy Code") then begin
+                    "Strategy Description" := objHeader."Strategy Description";
+                    "Output Code" := objHeader."Output Code";
                     "Output Description" := objHeader."Output Description";
                     "Strategic Objective Code" := objHeader."Strategic Objective Code";
                     "Strategic Objective" := ObjHeader."Strategic Objective";
@@ -33,6 +36,8 @@ table 80207 "Strategies Header"
                     "Outcome Description" := ObjHeader."Outcome Description";
 
                 end else begin
+                    Clear("Strategy Description");
+                    Clear("Output Code");
                     Clear("Output Description");
                     Clear("Strategic Objective");
                     Clear("Pillar Code");
@@ -40,68 +45,76 @@ table 80207 "Strategies Header"
                     Clear("Outcome Description");
                     Clear("Outcome Code");
 
+
                 end;
-
-
             end;
+        }
+        field(4; "Strategy Description"; text[250])
+        {
+            DataClassification = ToBeClassified;
+            Editable = false;
+            TableRelation = "Strategies Header"."Strategy Description";
+        }
+        field(5; "Output Code"; Code[10])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Strategies Header"."Output Code";
 
         }
-        field(4; "Output Description"; Text[250])
+        field(6; "Output Description"; Text[250])
         {
             DataClassification = ToBeClassified;
-            tablerelation = "Output Header"."Output Description";
+            tablerelation = "Strategies Header"."Output Description";
             Editable = false;
         }
-        field(5; "Outcome Code"; Code[10])
+        field(7; "Outcome Code"; Code[10])
         {
             DataClassification = ToBeClassified;
             Editable = false;
-            TableRelation = "Output Header"."Outcome Code";
+            TableRelation = "Strategies Header"."Outcome Code";
         }
-        field(6; "Outcome Description"; text[250])
+        field(8; "Outcome Description"; text[250])
         {
             DataClassification = ToBeClassified;
             editable = false;
-            TableRelation = "Output Header"."Outcome Description";
+            TableRelation = "Strategies Header"."Outcome Description";
 
         }
-        field(7; "Strategic Objective Code"; Code[10])
+        field(9; "Strategic Objective Code"; Code[10])
         {
             Caption = 'Strategic Objective Code';
             editable = false;
-            TableRelation = "Output Header"."Strategic Objective Code";
+            TableRelation = "Strategies Header"."Strategic Objective Code";
 
         }
-        field(8; "Strategic Objective"; Text[250])
+        field(10; "Strategic Objective"; Text[250])
         {
             Caption = 'Strategic Objective';
             editable = false;
-            TableRelation = "Output Header"."Strategic Objective";
+            TableRelation = "Strategies Header"."Strategic Objective";
 
         }
-        field(9; "Pillar Code"; Code[10])
+        field(11; "Pillar Code"; Code[10])
         {
             Caption = 'Pillar';
             editable = false;
-            TableRelation = "Output Header"."Pillar Code";
+            TableRelation = "Strategies Header"."Pillar Code";
 
 
         }
-        field(10; "Pillar Description"; Text[250])
+        field(12; "Pillar Description"; Text[250])
         {
             Caption = 'Pillar Description';
             Editable = false;
-            TableRelation = "Output Header"."Pillar Description";
+            TableRelation = "Strategies Header"."Pillar Description";
 
         }
-
-
 
     }
 
     keys
     {
-        key(Key1; "Strategy Code")
+        key(Key1; "Strategic Actions Code")
         {
             Clustered = true;
         }
