@@ -39,6 +39,10 @@ table 80204 "Outcomes Subform"
             editable = false;
             TableRelation = "Outcomes Header"."Outcome Code" where("Outcome Code" = field("Outcome Code"));
         }
+        field(4; "Added Number"; code[10])
+        {
+            DataClassification = ToBeClassified;
+        }
     }
 
     keys
