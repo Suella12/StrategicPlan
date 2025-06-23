@@ -23,6 +23,7 @@ table 80211 "DeptInitiatives Subform"
                     Depil."Dept Initiative" := "Dept Initiative";
                     Depil."Dept Initiative code" := "Dept Initiative Code";
                     Depil.Code := Code;
+                    Depil.Department := Depi.Department;
                     Depil."Strategic Actions Code" := Depi."Strategic Actions Code";
                     Depil."Strategic Actions Description" := Depi."Strategic Actions Description";
                     Depil."Strategy Code" := Depi."Strategy Code";
