@@ -92,8 +92,12 @@ table 80203 "Outcomes Header"
     end;
 
     trigger OnDelete()
+    var
+        OutcomeSubform: Record "Strategic Objective Subform";
     begin
-
+        OutcomeSubform.SetRange("Outcome Code", Rec."Outcome Code");
+        if not OutcomeSubform.IsEmpty() then
+            OutcomeSubform.DeleteAll();
     end;
 
     trigger OnRename()

@@ -16,13 +16,19 @@ page 80219 "Department Initiatives"
                 {
                     ToolTip = 'Specifies the value of the Code field.', Comment = '%';
                 }
-                field(Department; Rec.Department)
+                field("Department Code"; Rec."Department Code")
+                {
+                    ToolTip = 'Specifies the value of the Department Code field.', Comment = '%';
+                }
+                field("Department Name"; Rec.Department)
                 {
                     ToolTip = 'Specifies the value of the Department field.', Comment = '%';
                 }
+
                 field("Strategic Actions Code"; Rec."Strategic Actions Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Actions Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategic Actions Description"; Rec."Strategic Actions Description")
                 {
@@ -31,6 +37,7 @@ page 80219 "Department Initiatives"
                 field("Strategy Code"; Rec."Strategy Code")
                 {
                     ToolTip = 'Specifies the value of the Strategy Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategy Description"; Rec."Strategy Description")
                 {
@@ -39,6 +46,7 @@ page 80219 "Department Initiatives"
                 field("Output Code"; Rec."Output Code")
                 {
                     ToolTip = 'Specifies the value of the Output Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Output Description"; Rec."Output Description")
                 {
@@ -47,6 +55,7 @@ page 80219 "Department Initiatives"
                 field("Outcome Code"; Rec."Outcome Code")
                 {
                     ToolTip = 'Specifies the value of the Outcome Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Outcome Description"; Rec."Outcome Description")
                 {
@@ -55,6 +64,7 @@ page 80219 "Department Initiatives"
                 field("Strategic Objective Code"; Rec."Strategic Objective Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategic Objective"; Rec."Strategic Objective")
                 {
@@ -63,6 +73,7 @@ page 80219 "Department Initiatives"
                 field("Pillar Code"; Rec."Pillar Code")
                 {
                     ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    visible = false;
                 }
                 field("Pillar Description"; Rec."Pillar Description")
                 {

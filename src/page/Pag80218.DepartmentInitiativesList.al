@@ -22,6 +22,17 @@ page 80218 "Department Initiatives List"
                 field("Department Code"; Rec."Department Code")
                 {
                     ToolTip = 'Specifies the value of the Department Code field.', Comment = '%';
+                    trigger OnValidate()
+
+                    var
+                        DeptRec: Record "Dimension Value";
+                    begin
+                        if DeptRec.Get(Rec."Department Code") then
+                            Rec.Department := DeptRec.Name
+                        else
+                            Rec.Department := '';
+
+                    end;
                 }
                 field(Department; Rec.Department)
                 {

@@ -22,6 +22,7 @@ page 80208 "Outcomes Card"
                 field("Pillar Code"; Rec."Pillar Code")
                 {
                     ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    visible = false;
                 }
                 field("Pillar Description"; Rec."Pillar Description")
                 {
@@ -30,6 +31,7 @@ page 80208 "Outcomes Card"
                 field("Strategic Objective Code"; Rec."Strategic Objective Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategic Objective"; Rec."Strategic Objective")
                 {

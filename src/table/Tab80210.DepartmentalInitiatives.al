@@ -11,7 +11,8 @@ table 80210 "Departmental Initiatives"
         field(3; Department; Text[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Dimension Value".Code WHERE("Dimension Code" = CONST('DEPARTMENTS'));
+            TableRelation = "Dimension Value".Name WHERE("Dimension Code" = CONST('DEPARTMENT'));
+            Editable = false;
 
         }
         field(4; "Strategic Actions Code"; Code[10])
@@ -92,6 +93,7 @@ table 80210 "Departmental Initiatives"
         {
             DataClassification = ToBeClassified;
             TableRelation = "Strategic Actions Header"."Output Code";
+            Editable = false;
 
         }
         field(9; "Output Description"; Text[250])
@@ -145,7 +147,29 @@ table 80210 "Departmental Initiatives"
         field(16; "Department Code"; code[10])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Dimension Value".Code WHERE("Dimension Code" = CONST('DEPARTMENTS'));
+            Caption = 'Department Code';
+            TableRelation = "Dimension Value".Code WHERE("Dimension Code" = CONST('DEPARTMENT'));
+            trigger OnValidate()
+            var
+                DeptRec: Record "Dimension Value";
+            begin
+                Clear(Department); // Optional: clear first
+                if DeptRec.Get('DEPARTMENT', "Department Code") then
+                    Department := DeptRec.Name;
+            end;
+            // TableRelation = "Dimension Value".Code WHERE("Dimension Code" = CONST('DEPARTMENT'));
+            // trigger OnValidate()
+
+            // var
+            //     DeptRec: Record "Dimension Value";
+            // begin
+            //     if DeptRec.Get(Rec."Department Code") then
+            //         Rec.Department := DeptRec.Name
+            //     else
+            //         Rec.Department := '';
+
+            // end;
+
         }
         field(17; Year; Integer)
         {

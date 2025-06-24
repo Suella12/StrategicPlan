@@ -23,6 +23,7 @@ page 80215 "Strategic Actions List"
                 field("Strategy Code"; Rec."Strategy Code")
                 {
                     ToolTip = 'Specifies the value of the Strategy Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategy Description"; Rec."Strategy Description")
                 {
@@ -31,6 +32,7 @@ page 80215 "Strategic Actions List"
                 field("Output Code"; Rec."Output Code")
                 {
                     ToolTip = 'Specifies the value of the Output Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Output Description"; Rec."Output Description")
                 {
@@ -39,6 +41,7 @@ page 80215 "Strategic Actions List"
                 field("Outcome Code"; Rec."Outcome Code")
                 {
                     ToolTip = 'Specifies the value of the Outcome Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Outcome Description"; Rec."Outcome Description")
                 {
@@ -51,10 +54,12 @@ page 80215 "Strategic Actions List"
                 field("Strategic Objective Code"; Rec."Strategic Objective Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Pillar Code"; Rec."Pillar Code")
                 {
                     ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    visible = false;
                 }
                 field("Pillar Description"; Rec."Pillar Description")
                 {

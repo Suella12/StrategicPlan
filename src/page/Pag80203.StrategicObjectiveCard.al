@@ -15,6 +15,7 @@ page 80203 "Strategic Objective Card"
                 field("Pillar Code"; Rec."Pillar Code")
                 {
                     ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    //visible = false;
                     trigger OnValidate()
                     var
                         PillarRec: Record "Pillars Table";

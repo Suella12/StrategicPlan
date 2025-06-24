@@ -6,6 +6,7 @@ page 80210 "Outputs List"
     SourceTable = "Output Header";
     cardpageid = "Outputs Card";
     DelayedInsert = true;
+    //ModifyAllowed = False;
 
     layout
     {
@@ -24,6 +25,7 @@ page 80210 "Outputs List"
                 field("Outcome Code"; Rec."Outcome Code")
                 {
                     ToolTip = 'Specifies the value of the Outcome Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Outcome Description"; Rec."Outcome Description")
                 {
@@ -32,6 +34,7 @@ page 80210 "Outputs List"
                 field("Strategic Objective Code"; Rec."Strategic Objective Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
+                    visible = false;
                 }
                 field("Strategic Objective"; Rec."Strategic Objective")
                 {
@@ -40,6 +43,7 @@ page 80210 "Outputs List"
                 field("Pillar Code"; Rec."Pillar Code")
                 {
                     ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    visible = false;
                 }
                 field("Pillar Description"; Rec."Pillar Description")
                 {

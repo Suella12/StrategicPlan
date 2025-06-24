@@ -112,6 +112,8 @@ table 80209 "Strategic Actions Header"
 
     }
 
+
+
     keys
     {
         key(Key1; "Strategic Actions Code")
@@ -119,10 +121,9 @@ table 80209 "Strategic Actions Header"
             Clustered = true;
         }
     }
-
     fieldgroups
     {
-        // Add changes to field groups here
+        fieldgroup(DropDown; "Strategic Actions Code", "Strategic Actions Description") { }
     }
 
     var

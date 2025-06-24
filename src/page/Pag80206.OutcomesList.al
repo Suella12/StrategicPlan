@@ -22,14 +22,6 @@ page 80206 "Outcomes List"
                 {
                     ToolTip = 'Specifies the value of the Outcome Description field.', Comment = '%';
                 }
-                field("Pillar Code"; Rec."Pillar Code")
-                {
-                    ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
-                }
-                field("Pillar Description"; Rec."Pillar Description")
-                {
-                    ToolTip = 'Specifies the value of the Pillar Description field.', Comment = '%';
-                }
                 field("Strategic Objective"; Rec."Strategic Objective")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective field.', Comment = '%';
@@ -37,7 +29,18 @@ page 80206 "Outcomes List"
                 field("Strategic Objective Code"; Rec."Strategic Objective Code")
                 {
                     ToolTip = 'Specifies the value of the Strategic Objective Code field.', Comment = '%';
+                    visible = false;
                 }
+                field("Pillar Code"; Rec."Pillar Code")
+                {
+                    ToolTip = 'Specifies the value of the Pillar field.', Comment = '%';
+                    visible = false;
+                }
+                field("Pillar Description"; Rec."Pillar Description")
+                {
+                    ToolTip = 'Specifies the value of the Pillar Description field.', Comment = '%';
+                }
+
             }
         }
     }

@@ -7,6 +7,7 @@ table 80211 "DeptInitiatives Subform"
         field(1; "Dept Initiative Code"; code[10])
         {
             DataClassification = ToBeClassified;
+            Editable = false;
 
         }
         field(2; "Dept Initiative"; text[250])
@@ -17,7 +18,35 @@ table 80211 "DeptInitiatives Subform"
             var
                 Depi: Record "Departmental Initiatives";
                 Depil: Record "Consolidated Dept Initiatives";
+                DepilRec: Record "DeptInitiatives Subform";
+                MaxSuffix: Integer;
+                CodeParts: List of [Text];
+                CurrentCode: Text;
+                SuffixText: Text;
+
             begin
+                if ("Dept Initiative Code" = '') and (Code <> '') then begin
+                    MaxSuffix := 0;
+
+                    DepilRec.SetRange(Code, Code);
+                    if DepilRec.FindSet() then begin
+                        repeat
+                            CurrentCode := DepilRec."Dept Initiative Code";
+                            if StrPos(CurrentCode, '.') > 0 then begin
+                                CodeParts := CurrentCode.Split('.');
+                                if CodeParts.Count = 5 then begin
+                                    SuffixText := CodeParts.Get(6);
+                                    if Evaluate(MaxSuffix, SuffixText) then;
+                                end;
+                            end;
+                        until DepilRec.Next() = 0;
+                    end;
+                    MaxSuffix += 1;
+                    "Dept Initiative Code" := Code + '.' + Format(MaxSuffix);
+                end;
+
+
+
                 if Depi.Get(Code) then begin
                     Depil.init();
                     Depil."Dept Initiative" := "Dept Initiative";
